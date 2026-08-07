@@ -1,0 +1,335 @@
+databaseChangeLog:
+- changeSet:
+    id: 1785513546641-1
+    author: Pc (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            name: created_at
+            type: datetime(6)
+        - column:
+            name: timestamp
+            type: datetime(6)
+        - column:
+            name: action
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: user_uuid
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: uuid
+            type: VARCHAR(255)
+        tableName: activity_logs
+- changeSet:
+    id: 1785513546641-2
+    author: Pc (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            name: created_at
+            type: datetime(6)
+        - column:
+            constraints:
+              nullable: false
+            name: content
+            type: VARCHAR(255)
+        - column:
+            name: replayed_comment_uuid
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: task_uuid
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: user_uuid
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: uuid
+            type: VARCHAR(255)
+        tableName: comments
+- changeSet:
+    id: 1785513546641-3
+    author: Pc (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            name: is_read
+            type: BIT(1)
+        - column:
+            name: created_at
+            type: datetime(6)
+        - column:
+            name: action
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: message
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: title
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: user_uuid
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: uuid
+            type: VARCHAR(255)
+        tableName: notifications
+- changeSet:
+    id: 1785513546641-4
+    author: Pc (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: due_date
+            type: date
+        - column:
+            name: created_at
+            type: datetime(6)
+        - column:
+            name: description
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: title
+            type: VARCHAR(255)
+        - column:
+            name: user_uuid
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: uuid
+            type: VARCHAR(255)
+        - column:
+            name: task_status
+            type: ENUM('COMPLETED', 'IN_PROGRESS', 'PENDING')
+        tableName: tasks
+- changeSet:
+    id: 1785513546641-5
+    author: Pc (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            name: user_status
+            type: TINYINT(3)
+        - column:
+            name: created_at
+            type: datetime(6)
+        - column:
+            constraints:
+              nullable: false
+            name: email
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: name
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: password
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: user_name
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: uuid
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: user_role
+            type: ENUM('ADMIN', 'USER')
+        tableName: users
+- changeSet:
+    id: 1785513546641-6
+    author: Pc (generated)
+    changes:
+    - createIndex:
+        associatedWith: ''
+        columns:
+        - column:
+            name: user_uuid
+        indexName: FKiq2d5p090nn43wpgrw3kjtxe3
+        tableName: activity_logs
+- changeSet:
+    id: 1785513546641-7
+    author: Pc (generated)
+    changes:
+    - createIndex:
+        associatedWith: ''
+        columns:
+        - column:
+            name: task_uuid
+        indexName: FKjho6ke2isa7kil5lmeb3js7gw
+        tableName: comments
+- changeSet:
+    id: 1785513546641-8
+    author: Pc (generated)
+    changes:
+    - createIndex:
+        associatedWith: ''
+        columns:
+        - column:
+            name: replayed_comment_uuid
+        indexName: FKp3jagbh7twoyj2hv1xjvkv51l
+        tableName: comments
+- changeSet:
+    id: 1785513546641-9
+    author: Pc (generated)
+    changes:
+    - createIndex:
+        associatedWith: ''
+        columns:
+        - column:
+            name: user_uuid
+        indexName: FKpe1li9w49d73hsn4wr20bsl9g
+        tableName: comments
+- changeSet:
+    id: 1785513546641-10
+    author: Pc (generated)
+    changes:
+    - createIndex:
+        associatedWith: ''
+        columns:
+        - column:
+            name: user_uuid
+        indexName: FKq3ni1px7o1pv0c076oaslfnw8
+        tableName: tasks
+- changeSet:
+    id: 1785513546641-11
+    author: Pc (generated)
+    changes:
+    - createIndex:
+        associatedWith: ''
+        columns:
+        - column:
+            name: user_uuid
+        indexName: FKs0x0oclrnldoletd5xfid3ru7
+        tableName: notifications
+- changeSet:
+    id: 1785513546641-12
+    author: Pc (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: user_uuid
+        baseTableName: activity_logs
+        constraintName: FKiq2d5p090nn43wpgrw3kjtxe3
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: RESTRICT
+        onUpdate: RESTRICT
+        referencedColumnNames: uuid
+        referencedTableName: users
+        validate: true
+- changeSet:
+    id: 1785513546641-13
+    author: Pc (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: task_uuid
+        baseTableName: comments
+        constraintName: FKjho6ke2isa7kil5lmeb3js7gw
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: RESTRICT
+        onUpdate: RESTRICT
+        referencedColumnNames: uuid
+        referencedTableName: tasks
+        validate: true
+- changeSet:
+    id: 1785513546641-14
+    author: Pc (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: replayed_comment_uuid
+        baseTableName: comments
+        constraintName: FKp3jagbh7twoyj2hv1xjvkv51l
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: RESTRICT
+        onUpdate: RESTRICT
+        referencedColumnNames: uuid
+        referencedTableName: comments
+        validate: true
+- changeSet:
+    id: 1785513546641-15
+    author: Pc (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: user_uuid
+        baseTableName: comments
+        constraintName: FKpe1li9w49d73hsn4wr20bsl9g
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: RESTRICT
+        onUpdate: RESTRICT
+        referencedColumnNames: uuid
+        referencedTableName: users
+        validate: true
+- changeSet:
+    id: 1785513546641-16
+    author: Pc (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: user_uuid
+        baseTableName: tasks
+        constraintName: FKq3ni1px7o1pv0c076oaslfnw8
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: RESTRICT
+        onUpdate: RESTRICT
+        referencedColumnNames: uuid
+        referencedTableName: users
+        validate: true
+- changeSet:
+    id: 1785513546641-17
+    author: Pc (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: user_uuid
+        baseTableName: notifications
+        constraintName: FKs0x0oclrnldoletd5xfid3ru7
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: RESTRICT
+        onUpdate: RESTRICT
+        referencedColumnNames: uuid
+        referencedTableName: users
+        validate: true
+

@@ -1,0 +1,60 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-tokens-table
+      author: khaled
+
+      changes:
+        - createTable:
+            tableName: tokens
+            columns:
+              - column:
+                  name: uuid
+                  type: VARCHAR(255)
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+
+              - column:
+                  name: created_at
+                  type: datetime(6)
+
+              - column:
+                  name: token_status
+                  type: VARCHAR(50)
+                  constraints:
+                    nullable: false
+
+              - column:
+                  name: user_uuid
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+
+              - column:
+                  name: last_used
+                  type: datetime(6)
+                  constraints:
+                    nullable: false
+
+        - addForeignKeyConstraint:
+            baseTableName: tokens
+            baseColumnNames: user_uuid
+            referencedTableName: users
+            referencedColumnNames: uuid
+            constraintName: fk_tokens_user
+            onDelete: RESTRICT
+            onUpdate: RESTRICT
+
+        - createIndex:
+            tableName: tokens
+            indexName: idx_tokens_user_uuid
+            columns:
+              - column:
+                  name: user_uuid
+
+        - createIndex:
+            tableName: tokens
+            indexName: idx_tokens_status
+            columns:
+              - column:
+                  name: token_status

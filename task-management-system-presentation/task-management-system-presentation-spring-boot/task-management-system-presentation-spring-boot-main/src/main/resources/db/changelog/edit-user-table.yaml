@@ -1,0 +1,9 @@
+databaseChangeLog:
+  - changeSet:
+      id: alter-user-status-to-varchar
+      author: Khaled
+      changes:
+        - modifyDataType:
+            tableName: users
+            columnName: user_status
+            newDataType: varchar(20)

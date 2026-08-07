@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.globitel.task.management.system</groupId>
+        <artifactId>task-management-system-core-user</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>task-management-system-core-user-usecase</artifactId>
+
+<dependencies>
+    <dependency>
+        <groupId>${project.parent.groupId}</groupId>
+        <artifactId>task-management-system-core-shared-usecase</artifactId>
+        <version>${project.parent.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>${project.parent.groupId}</groupId>
+        <artifactId>task-management-system-core-user-factory</artifactId>
+        <version>${project.parent.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>${project.parent.groupId}</groupId>
+        <artifactId>task-management-system-core-user-factory-domain</artifactId>
+        <version>${project.parent.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>${project.parent.groupId}</groupId>
+        <artifactId>task-management-system-core-user-dao</artifactId>
+        <version>${project.parent.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>${project.parent.groupId}</groupId>
+        <artifactId>task-management-system-core-shared-exception</artifactId>
+        <version>${project.parent.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>${project.parent.groupId}</groupId>
+        <artifactId>task-management-system-core-user-function</artifactId>
+        <version>${project.parent.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>${project.parent.groupId}</groupId>
+        <artifactId>task-management-system-core-user-factory-security</artifactId>
+        <version>${project.parent.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>${project.parent.groupId}</groupId>
+        <artifactId>task-management-system-core-token-factory-domain</artifactId>
+        <version>${project.parent.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>${project.parent.groupId}</groupId>
+        <artifactId>task-management-system-core-shared-security-context</artifactId>
+        <version>${project.parent.version}</version>
+    </dependency>
+
+</dependencies>
+
+</project>

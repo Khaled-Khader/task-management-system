@@ -1,0 +1,35 @@
+databaseChangeLog:
+
+  - changeSet:
+      id: 1785853155907-1
+      author: khaled
+
+      changes:
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: uuid
+                  value: "admin-uuid-001"
+              - column:
+                  name: created_at
+                  valueDate: "2026-08-04T00:00:00"
+              - column:
+                  name: name
+                  value: "Khaled"
+              - column:
+                  name: email
+                  value: "khaled@gmail.com"
+              - column:
+                  name: user_name
+                  value: "Khaled"
+              - column:
+                  name: password
+                  value: "$2a$10$YZJs4POQl6UMvvcxNnxAaOt2GCZWNRCedpIquZHe5UNKK/81fWUAi"
+              - column:
+                  name: user_role
+                  value: "ADMIN"
+              - column:
+                  name: user_status
+                  value: "ACTIVE"
+
